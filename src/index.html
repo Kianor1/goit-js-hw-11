@@ -5,12 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HW-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
-
-
+  <div class="app">
+    <form id="searchForm">
+      <input type="text" id="searchQuery" placeholder="Search Images..." required>
+      <button type="submit">Search</button>
+    </form>
+    <div id="gallery" class="gallery"></div>
+    <div id="loader" class="is-hidden loader">Loading images, please wait...</div>
+  </div>
   <script type="module" src="./js/main.js"></script>
 </body>
 
