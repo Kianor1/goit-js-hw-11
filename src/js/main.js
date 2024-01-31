@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const formElem = document.querySelector('.search-form');
 const list = document.querySelector('.gallery');
-const loadBtn = document.querySelector('.js-more-btn');
+const loadMoreBtn = document.querySelector('.js-more-btn');
 const loader = document.querySelector('.js-loader');
 
 let page = 1;
@@ -110,9 +110,9 @@ function renderPictures(imgs) {
   lightbox.refresh();
 }
 
-loadBtn.addEventListener('click', onLoadBtnClick);
+loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
-async function onLoadBtnClick() {
+async function onLoadMoreBtnClick() {
   page += 1;
   showLoader();
   const result = await getImage();
@@ -128,9 +128,9 @@ function changeBtnStatus(totalHits) {
       position: 'topRight',
       message: "We're sorry, there are no more posts to load",
     });
-    loadBtn.classList.add('is-hidden');
+    loadMoreBtn.classList.add('is-hidden');
   } else {
-    loadBtn.classList.remove('is-hidden');
+    loadMoreBtn.classList.remove('is-hidden');
   }
 }
 
