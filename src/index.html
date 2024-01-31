@@ -12,17 +12,18 @@
 </head>
 
 <body>
-  <div class="app">
-    <form id="searchForm">
-      <input type="text" id="searchQuery" placeholder="Search Images..." required>
-      <button type="submit">Search</button>
-    </form>
-    <div id="gallery" class="gallery"></div>
-    <div id="loader" class="is-hidden loader">Loading images, please wait...</div>
+  <form class="search-form">
+    <input class="input" type="text" name="query" placeholder="Search images..." />
+    <button class="button" type="submit">Search</button>
+  </form>
+  <div class="loader-sign js-loader is-hidden"><span class="">Loading images, please wait...</span>
+    <div class="loader"></div>
   </div>
-  <script src="../node_modules/izitoast/dist/js/iziToast.jss"></script>
-  <script src="../node_modules/simplelightbox/dist/simple-lightbox.js"></script>
-  <script type="module" src="./js/main.js"></script>
-</body>
+  <div class="wrapper-pictures">
+    <ul class="pictures-list">
+
+    </ul>
+  </div>
+  <button class="button load js-load-btn is-hidden">Load</button>
 
 </html>
