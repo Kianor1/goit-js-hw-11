@@ -1,6 +1,10 @@
+// Описаний у документації
 import iziToast from 'izitoast';
+// Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
+// Описаний у документації
 import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
@@ -14,6 +18,7 @@ let query = null;
 
 function getPictures() {
   const BASE_URL = 'https://pixabay.com/api/';
+
   const params = {
     key: '42111454-a6064c7507ecd0abc8356168a',
     q: query,
