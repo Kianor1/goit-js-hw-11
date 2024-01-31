@@ -20,5 +20,5 @@ import{i as c,S as L,a as b}from"./assets/vendor-5401a4b0.js";(function(){const 
     </li>
   </ul>
 </a>
-</li>`}function w(r){return r.map(v).join("")}function f(r){const e=w(r);p.insertAdjacentHTML("beforeend",e),$.refresh()}l.addEventListener("click",P);async function P(){n+=1,h();const r=await m();f(r.hits),g(r.totalHits),y()}function g(r){const e=Math.ceil(r/40);n>=e?(c.info({position:"topRight",message:"We're sorry, there are no more posts to load"}),l.classList.add("is-hidden")):l.classList.remove("is-hidden")}function h(){d.classList.remove("is-hidden")}function y(){d.classList.add("is-hidden")}const $=new L(".pictures-list a",{captionDelay:250,captionsData:"alt"});
+</li>`}function w(r){return r.map(v).join("")}function f(r){const e=w(r);p.insertAdjacentHTML("beforeend",e),E.refresh()}l.addEventListener("click",$);async function $(){n+=1,h();const r=await m();f(r.hits),g(r.totalHits),y()}function g(r){const e=Math.ceil(r/40);n>=e?(c.info({position:"topRight",message:"We're sorry, there are no more posts to load"}),l.classList.add("is-hidden")):l.classList.remove("is-hidden")}function h(){d.classList.remove("is-hidden")}function y(){d.classList.add("is-hidden")}const E=new L(".pictures-list a",{captionDelay:250,captionsData:"alt"});
 //# sourceMappingURL=commonHelpers.js.map
