@@ -2,7 +2,6 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import axios from 'axios';
 
 const formElem = document.querySelector('.search-form');
 const list = document.querySelector('.gallery');
@@ -12,10 +11,10 @@ const loader = document.querySelector('.js-loader');
 let page = 1;
 let query = null;
 
-function getImage() {
+async function getImage() {
   const BASE_URL = 'https://pixabay.com/api/';
 
-  const params = {
+  const params = new URLSearchParams({
     key: '42111454-a6064c7507ecd0abc8356168a',
     q: query,
     image_type: 'photo',
@@ -23,9 +22,23 @@ function getImage() {
     safesearch: true,
     per_page: 40,
     page,
-  };
+  });
 
-  return axios.get(BASE_URL, { params }).then(res => res.data);
+  const url = `${BASE_URL}?${params.toString()}`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(`Fetch error: ${error}`);
+    throw error;
+  }
 }
 
 formElem.addEventListener('submit', onFormSubmit);
@@ -100,6 +113,7 @@ function imgTemplate({
 </a>
 </li>`;
 }
+
 function imgsTemplate(imgs) {
   return imgs.map(imgTemplate).join('');
 }
@@ -137,6 +151,7 @@ function changeBtnStatus(totalHits) {
 function showLoader() {
   loader.classList.remove('is-hidden');
 }
+
 function hideLoader() {
   loader.classList.add('is-hidden');
 }
