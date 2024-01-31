@@ -12,23 +12,25 @@
 </head>
 
 <body>
-  <form class="search-form">
-    <input class="input" type="text" name="query" placeholder="Search images..." />
-    <button class="button" type="submit">Search</button>
-  </form>
-  <div class="loader-sign js-loader is-hidden"><span class="">Loading images, please wait...</span>
-    <div class="loader"></div>
+  <div class="conteiner">
+    <form class="search-form">
+      <input class="input" type="text" name="query" placeholder="Search images..." />
+      <button class="button" type="submit">Search</button>
+    </form>
+    <div class="loader-sign js-loader is-hidden"><span class="">Loading images, please wait...</span>
+      <div class="loader"></div>
+    </div>
+
+
+    <div class="gallery-img">
+      <ul class="gallery">
+
+      </ul>
+    </div>
+    <button class="button load js-more-btn is-hidden">More</button>
+
+    <script type="module" src="./js/main.js"></script>
   </div>
-
-
-  <div class="wrapper-pictures">
-    <ul class="pictures-list">
-
-    </ul>
-  </div>
-  <button class="button load js-load-btn is-hidden">More</button>
-
-  <script type="module" src="./js/main.js"></script>
 </body>
 
 </html>

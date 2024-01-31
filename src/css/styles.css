@@ -17,9 +17,16 @@
 }
 
 body {
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.conteiner {
   width: 1440px;
   padding-top: 36px;
-
+  margin: 0 auto;
 }
 
 .loader {
@@ -137,16 +144,17 @@ body {
 .load {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 32px;
 }
 
-.wrapper-pictures {
+.gallery-img {
   max-width: 100%;
   padding: 24px 0;
   margin-right: auto;
   margin-left: auto;
 }
 
-.pictures-list {
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

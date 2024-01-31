@@ -5,8 +5,8 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
 const formElem = document.querySelector('.search-form');
-const list = document.querySelector('.pictures-list');
-const loadBtn = document.querySelector('.js-load-btn');
+const list = document.querySelector('.gallery');
+const loadBtn = document.querySelector('.js-more-btn');
 const loader = document.querySelector('.js-loader');
 
 let page = 1;
@@ -100,12 +100,12 @@ function pictureTemplate({
 </a>
 </li>`;
 }
-function picturesTemplate(photos) {
-  return photos.map(pictureTemplate).join('');
+function picturesTemplate(imgs) {
+  return imgs.map(pictureTemplate).join('');
 }
 
-function renderPictures(photos) {
-  const markup = picturesTemplate(photos);
+function renderPictures(imgs) {
+  const markup = picturesTemplate(imgs);
   list.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
