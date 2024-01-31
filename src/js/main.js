@@ -58,7 +58,7 @@ async function onFormSubmit(e) {
     if (page === 1) {
       showLoader();
       list.innerHTML = '';
-      renderPictures(result.hits);
+      renderImgs(result.hits);
       changeBtnStatus(result.totalHits);
       hideLoader();
     }
@@ -67,7 +67,7 @@ async function onFormSubmit(e) {
   }
 }
 
-function pictureTemplate({
+function imgTemplate({
   largeImageURL,
   webformatURL,
   tags,
@@ -100,12 +100,12 @@ function pictureTemplate({
 </a>
 </li>`;
 }
-function picturesTemplate(imgs) {
-  return imgs.map(pictureTemplate).join('');
+function imgsTemplate(imgs) {
+  return imgs.map(imgTemplate).join('');
 }
 
-function renderPictures(imgs) {
-  const markup = picturesTemplate(imgs);
+function renderImgs(imgs) {
+  const markup = imgsTemplate(imgs);
   list.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
@@ -116,7 +116,7 @@ async function onLoadMoreBtnClick() {
   page += 1;
   showLoader();
   const result = await getImage();
-  renderPictures(result.hits);
+  renderImgs(result.hits);
   changeBtnStatus(result.totalHits);
   hideLoader();
 }
