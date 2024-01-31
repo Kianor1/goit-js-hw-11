@@ -1,10 +1,6 @@
-// Описаний у документації
 import iziToast from 'izitoast';
-// Додатковий імпорт стилів
 import 'izitoast/dist/css/iziToast.min.css';
-// Описаний у документації
 import SimpleLightbox from 'simplelightbox';
-// Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
@@ -16,7 +12,7 @@ const loader = document.querySelector('.js-loader');
 let page = 1;
 let query = null;
 
-function getPictures() {
+function getImage() {
   const BASE_URL = 'https://pixabay.com/api/';
 
   const params = {
@@ -26,7 +22,7 @@ function getPictures() {
     orientation: 'horizontal',
     safesearch: true,
     per_page: 40,
-    page: page,
+    page,
   };
 
   return axios.get(BASE_URL, { params }).then(res => res.data);
@@ -48,7 +44,7 @@ async function onFormSubmit(e) {
   }
 
   try {
-    const result = await getPictures();
+    const result = await getImage();
 
     if (result.totalHits === 0) {
       iziToast.error({
@@ -119,7 +115,7 @@ loadBtn.addEventListener('click', onLoadBtnClick);
 async function onLoadBtnClick() {
   page += 1;
   showLoader();
-  const result = await getPictures();
+  const result = await getImage();
   renderPictures(result.hits);
   changeBtnStatus(result.totalHits);
   hideLoader();
